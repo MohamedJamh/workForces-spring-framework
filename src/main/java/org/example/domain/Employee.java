@@ -1,27 +1,28 @@
 package org.example.domain;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.persistence.Id;
 
-@Getter
-@Setter
-@NoArgsConstructor
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.ManyToOne;
+
+
+
+@Entity
+@Builder
 public class Employee {
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String name;
     private double salary;
+    @ManyToOne
     private Department department;
 
-    @Autowired
-    public Employee(Department department) {
-        this.department = department;
-    }
-
-    public Employee(int id, String name, double salary) {
-        this.id = id;
-        this.name = name;
-        this.salary = salary;
-    }
 }
