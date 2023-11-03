@@ -1,6 +1,7 @@
 package org.example;
 
 
+import org.example.domain.Department;
 import org.example.domain.Employee;
 import org.example.repository.EmployeeRepository;
 import org.example.service.EmployeeService;
@@ -13,11 +14,11 @@ public class App
     {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
         EmployeeService service = (EmployeeService) context.getBean("employeeService");
-        service.addEmployee(
-                Employee.builder()
-                        .name("test")
-                        .build()
+
+        Employee employee = service.addEmployee(
+                new Employee("name",1000, Department.builder().name("department").build())
         );
+        System.out.println(employee);
     }
 
 }
