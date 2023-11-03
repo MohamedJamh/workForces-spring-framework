@@ -5,7 +5,7 @@ import org.example.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class EmployeeService {
-    private EmployeeRepository employeeRepository;
+    private final EmployeeRepository employeeRepository;
     public EmployeeService(EmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;
     }

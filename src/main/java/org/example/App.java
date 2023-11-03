@@ -16,7 +16,7 @@ public class App
         EmployeeService service = (EmployeeService) context.getBean("employeeService");
 
         Employee employee = service.addEmployee(
-                new Employee("name",1000, Department.builder().name("department").build())
+                new Employee("name",1000, Department.builder().id((long) 1).build())
         );
         System.out.println(employee);
     }
